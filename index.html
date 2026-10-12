@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cute Shooter: a math-gate UFO shooter for Android</title>
+<meta name="description" content="Pilot a tiny UFO, fly through +, -, x2 and ÷2 gates to grow your number, and pop waves of very cute shapes. Play it free in your browser, then get it on Google Play.">
+<link rel="canonical" href="https://cute-shooter.com/">
+<meta name="theme-color" content="#78bff7">
+<meta property="og:title" content="Cute Shooter">
+<meta property="og:description" content="Pick the right gate. Grow your swarm. Pop everything cute. Free on Android.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cute-shooter.com/">
+<meta property="og:site_name" content="Cute Shooter">
+<meta property="og:image" content="https://cute-shooter.com/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cute Shooter: a tiny UFO popping a sky full of smiling shapes.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cute Shooter">
+<meta name="twitter:description" content="Pick the right gate. Grow your swarm. Pop everything cute. Free on Android.">
+<meta name="twitter:image" content="https://cute-shooter.com/img/og.png">
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "WebSite",
+			"@id": "https://cute-shooter.com/#website",
+			"url": "https://cute-shooter.com/",
+			"name": "Cute Shooter",
+			"publisher": { "@id": "https://cute-shooter.com/#eiilo" }
+		},
+		{
+			"@type": "Organization",
+			"@id": "https://cute-shooter.com/#eiilo",
+			"name": "eiilo games",
+			"email": "hi@eiilo.com"
+		},
+		{
+			"@type": ["VideoGame", "MobileApplication"],
+			"@id": "https://cute-shooter.com/#game",
+			"name": "Cute Shooter",
+			"url": "https://cute-shooter.com/",
+			"description": "An endless arcade shooter. Steer a tiny UFO through math gates to grow your number, pop waves of cute shapes and beat the Big Meanies. Leaderboards and achievements through Google Play Games.",
+			"genre": ["Arcade", "Shooter"],
+			"gamePlatform": "Android",
+			"operatingSystem": "Android",
+			"applicationCategory": "GameApplication",
+			"image": "https://cute-shooter.com/img/icon-256.png",
+			"screenshot": [
+				"https://cute-shooter.com/img/shots/menu.webp",
+				"https://cute-shooter.com/img/shots/run_20.webp",
+				"https://cute-shooter.com/img/shots/run_90.webp"
+			],
+			"installUrl": "https://play.google.com/store/apps/details?id=com.eiilo.games.cuteshooter",
+			"offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+			"author": { "@id": "https://cute-shooter.com/#eiilo" },
+			"publisher": { "@id": "https://cute-shooter.com/#eiilo" }
+		}
+	]
+}
+</script>
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/kenney-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/kenney-mini-square.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+	<a class="brand" href="/"><img src="/img/icon-256.png" alt="" width="42" height="42"><span>CUTE SHOOTER</span></a>
+	<nav aria-label="Sections">
+		<a href="#play">Play</a>
+		<a href="#how">How it plays</a>
+		<a href="#cuties">The cuties</a>
+		<a href="#powerups">Power-ups</a>
+		<a href="/privacy">Privacy</a>
+	</nav>
+	<a class="btn btn-green" href="https://play.google.com/store/apps/details?id=com.eiilo.games.cuteshooter"><span class="play-glyph" aria-hidden="true"></span><span>Google Play</span></a>
+</header>
+
+<main id="main">
+<section class="hero" id="play">
+	<div class="clouds" aria-hidden="true">
+		<img src="/img/bg/cloud1.png" alt="" style="top:6%;--w:240px;--d:85s;--delay:-20s;--rest:6vw">
+		<img src="/img/bg/cloud4.png" alt="" style="top:34%;--w:150px;--o:.55;--d:120s;--delay:-75s;--rest:70vw">
+		<img src="/img/bg/cloud6.png" alt="" style="top:70%;--w:240px;--d:95s;--delay:-55s;--rest:40vw">
+	</div>
+	<div class="hero-grid">
+		<div class="hero-copy">
+			<h1>Pick the right gate<small>Grow your swarm<br>Pop everything cute</small></h1>
+			<p class="lede">Steer a tiny UFO through math gates, grow your number, and pop a sky full of smiling shapes. It never ends; your score is how far you get.</p>
+			<a class="btn btn-green btn-big" href="https://play.google.com/store/apps/details?id=com.eiilo.games.cuteshooter"><span class="play-glyph" aria-hidden="true"></span>Get it on Google Play</a>
+			<p class="fine">Free on Android. Or play it right here.</p>
+		</div>
+		<div class="phone">
+			<div class="frame" id="frame">
+				<canvas id="game" width="360" height="640" tabindex="0" aria-label="Cute Shooter, playable. Click or tap the game to give it focus. Drag to steer, or use the arrow keys. Space drops the bomb, Shift raises the shield, Escape pauses.">Your browser cannot show the game. Get it on Google Play instead.</canvas>
+				<div class="focus-hint" aria-hidden="true">
+					<span class="focus-hint-label"><span class="fine-pointer">Click to play</span><span class="coarse-pointer">Tap to play</span></span>
+					<span class="focus-hint-sub fine-pointer">Keys only work while the game is selected</span>
+				</div>
+			</div>
+			<p class="controls">Drag or <kbd>&larr;</kbd> <kbd>&rarr;</kbd> to steer &middot; <kbd>Space</kbd> bomb &middot; <kbd>Shift</kbd> shield &middot; <kbd>Esc</kbd> pause</p>
+			<div class="audio-toggles" role="group" aria-label="Audio">
+				<button type="button" class="btn toggle" id="toggle-music" aria-pressed="true">Music <span>on</span></button>
+				<button type="button" class="btn toggle" id="toggle-sound" aria-pressed="true">Sound <span>on</span></button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section" id="how">
+	<div class="inner">
+		<h2>How it plays</h2>
+		<p class="intro">One thumb. The ship shoots by itself; you just decide where to be.</p>
+		<ol class="steps">
+			<li>
+				<div class="art"><img src="/img/ufo/ship_pink.png" alt="" width="104" height="106"></div>
+				<h3>Steer</h3><p>Drag left and right. Lasers fire nonstop.</p>
+			</li>
+			<li>
+				<div class="art"><span class="gate good">x2</span><span class="gate bad">-6</span></div>
+				<h3>Pick a gate</h3><p>Gates change your number, and your number is your firepower. Shoot a bad gate and it turns good.</p>
+			</li>
+			<li>
+				<div class="art"><div class="critter"><img class="body" src="/img/shapes/yellow_body_square.png" alt=""><img class="face" src="/img/shapes/face_a.png" alt="" style="width:62.5%"></div></div>
+				<h3>Pop the cuties</h3><p>Anything that slips past the bottom takes a bite out of your number.</p>
+			</li>
+		</ol>
+	</div>
+</section>
+
+<section class="section deep" id="cuties">
+	<div class="inner">
+		<h2>Meet the cuties</h2>
+		<p class="intro">They look friendly. Most of them are.</p>
+		<ul class="critters">
+			<li><div class="critter"><img class="body" src="/img/shapes/pink_body_square.png" alt=""><img class="face" src="/img/shapes/face_h.png" alt="" style="width:68.75%"></div><h3>Square</h3><p>Just here to wobble.</p></li>
+			<li><div class="critter"><img class="body" src="/img/shapes/red_body_rhombus.png" alt=""><img class="face" src="/img/shapes/face_f.png" alt="" style="width:68.75%"></div><h3>Shooter</h3><p>Lobs orbs at you.</p></li>
+			<li><div class="critter"><img class="body" src="/img/shapes/pink_body_circle.png" alt=""><img class="face" src="/img/shapes/face_d.png" alt="" style="width:66.25%"></div><h3>Clinger</h3><p>Sticks to your nose. Wiggle it off.</p></li>
+			<li><div class="critter"><img class="body" src="/img/shapes/green_body_rhombus.png" alt=""><img class="face" src="/img/shapes/face_b.png" alt="" style="width:62.5%"></div><h3>Dasher</h3><p>Rattles, then charges.</p></li>
+			<li><div class="critter"><img class="body" src="/img/shapes/blue_body_squircle.png" alt=""><img class="face" src="/img/shapes/face_c.png" alt="" style="width:73.75%"></div><h3>Tank</h3><p>Slow, huge, stubborn.</p></li>
+			<li><div class="critter big"><img class="body" src="/img/shapes/purple_body_squircle.png" alt=""><img class="face" src="/img/shapes/face_g.png" alt="" style="width:68.75%"></div><h3>Big Meanie</h3><p>Each one angrier than the last.</p></li>
+		</ul>
+	</div>
+</section>
+
+<section class="section" id="powerups">
+	<div class="inner">
+		<h2>Two buttons for bad days</h2>
+		<div class="abilities">
+			<div class="ability">
+				<div class="round"><img src="/img/ui/btn_round_yellow.png" alt=""><img class="icon bomb" src="/img/fx/bomb.png" alt=""></div>
+				<div><h3>Big Bomb</h3><p>Blows a hole in the wave. Ready every 30 seconds.</p></div>
+			</div>
+			<div class="ability">
+				<div class="round"><img src="/img/ui/btn_round_green.png" alt=""><img class="icon" src="/img/icons/shield_gold.png" alt=""></div>
+				<div><h3>Zap Shield</h3><p>Five seconds of touch-and-pop. Ready every minute.</p></div>
+			</div>
+		</div>
+		<p class="aside">Level up to pick upgrades, grab the wobbly mystery box if you feel lucky, and spend your coins between runs on permanent boosts. On Android, climb the leaderboards and unlock achievements with Google Play Games.</p>
+	</div>
+</section>
+
+<section class="section deep" id="shots">
+	<div class="inner">
+		<ul class="shots">
+			<li><figure><img src="/img/shots/menu.webp" alt="The main menu: the title, a UFO between a pink circle and a yellow square, the ship picker, the upgrade shop and a big green Play button." width="360" height="640" loading="lazy"><figcaption>Pick a ship, buy upgrades</figcaption></figure></li>
+			<li><figure><img src="/img/shots/run_20.webp" alt="Mid-run: a sky packed with smiling shapes, a green +13 gate, and the ship at the bottom with its bomb and shield buttons." width="360" height="640" loading="lazy"><figcaption>Choose your gates</figcaption></figure></li>
+			<li><figure><img src="/img/shots/run_90.webp" alt="Ninety seconds in: two huge purple Big Meanies with 351 and 420 HP, red minus gates, and a hail of floating numbers." width="360" height="640" loading="lazy"><figcaption>Survive the Meanies</figcaption></figure></li>
+		</ul>
+	</div>
+</section>
+
+<section class="section" id="about">
+	<div class="inner narrow">
+		<h2>About</h2>
+		<p>Cute Shooter is made by eiilo, a small independent studio. The art, sounds, music and fonts are by <a href="https://kenney.nl">Kenney</a> (CC0). The game on this page is the Android game ported to your browser: same numbers, same cuties, and no ads. The Android app is free with ads, and adds leaderboards and achievements with Google Play Games.</p>
+		<p>Found a bug, or want a new cutie? Write to <a href="mailto:hi@eiilo.com">hi@eiilo.com</a>. How the app handles data is in the <a href="/privacy">privacy policy</a>.</p>
+	</div>
+</section>
+
+<section class="section cta-band" id="get">
+	<div class="inner">
+		<img class="ufo" src="/img/ufo/ship_yellow.png" alt="" width="124" height="108">
+		<h2>Take it with you</h2>
+		<p>Same game, made for thumbs, with leaderboards and achievements on Google Play Games. Free on Android.</p>
+		<a class="btn btn-green btn-big" href="https://play.google.com/store/apps/details?id=com.eiilo.games.cuteshooter"><span class="play-glyph" aria-hidden="true"></span>Get it on Google Play</a>
+	</div>
+</section>
+</main>
+
+<footer>
+	<div class="inner">
+		<span>Cute Shooter by eiilo, 2026</span>
+		<a href="/privacy">Privacy policy</a>
+		<a href="#play">Back to the top</a>
+		<span class="credit">Art, sound and fonts by <a href="https://kenney.nl">Kenney</a> (CC0)</span>
+	</div>
+</footer>
+
+<script src="/game.js"></script>
+<script src="/audio.js"></script>
+<script>
+(function () {
+	var canvas = document.getElementById("game");
+	if (!canvas.getContext) return;
+	var audio = CuteAudio.create({ base: "/" });
+	var game = CuteShooter.mount(canvas, { audio: audio, base: "/" });
+	window.CuteGame = game;   // for poking at it from the console
+
+	// Canvas text only uses a web font once it has loaded; ask for them up front.
+	if (document.fonts && document.fonts.load) {
+		["Kenney Bold", "Kenney Mini Square"].forEach(function (f) { document.fonts.load("40px '" + f + "'", "0+-÷").catch(function () {}); });
+	}
+
+	// The same switches as the game's own, for a keyboard or a screen reader;
+	// both stay in step through the game's "settings" event.
+	var renders = [];
+	function bindToggle(id, isOn, setOn) {
+		var btn = document.getElementById(id);
+		var label = btn.querySelector("span");
+		function render() {
+			var on = isOn();
+			btn.setAttribute("aria-pressed", on ? "true" : "false");
+			btn.classList.toggle("off", !on);
+			label.textContent = on ? "on" : "off";
+		}
+		btn.addEventListener("click", function () { audio.unlock(); setOn(!isOn()); });
+		renders.push(render);
+		render();
+	}
+	bindToggle("toggle-music", function () { return game.save.music_on; }, function (on) { game.setAudio(on, game.save.sfx_on); });
+	bindToggle("toggle-sound", function () { return game.save.sfx_on; }, function (on) { game.setAudio(game.save.music_on, on); });
+	game.on("settings", function () { renders.forEach(function (r) { r(); }); });
+
+	// Keys only reach the game while the canvas is focused. Show a
+	// "click to play" overlay until it is, and nudge it when someone
+	// presses a game key without having clicked the frame.
+	var frame = document.getElementById("frame");
+	var hint = frame.querySelector(".focus-hint");
+	function setArmed(on) { frame.classList.toggle("armed", on); }
+	canvas.addEventListener("focus", function () { setArmed(true); });
+	canvas.addEventListener("blur", function () { setArmed(false); });
+	canvas.addEventListener("pointerdown", function () { setArmed(true); });
+	document.addEventListener("keydown", function (e) {
+		if (frame.classList.contains("armed") || e.repeat) return;
+		if (["ArrowLeft", "ArrowRight", "Space", "Enter", "KeyZ", "KeyX"].indexOf(e.code) < 0) return;
+		var r = frame.getBoundingClientRect();
+		if (r.bottom < 0 || r.top > window.innerHeight) return;
+		hint.classList.remove("nudge");
+		void hint.offsetWidth;
+		hint.classList.add("nudge");
+	});
+	hint.addEventListener("animationend", function () { hint.classList.remove("nudge"); });
+
+	// Size the canvas to the space available, keeping 9:16. The game draws in
+	// its own 720x1280 space and re-reads the CSS size every frame.
+	var phone = canvas.closest(".phone");
+	function fit() {
+		var availW = Math.min(phone.clientWidth || 360, window.innerWidth - 40);
+		var availH = window.innerHeight * 0.8;
+		var s = Math.min(availW / 360, availH / 640);
+		s = Math.max(0.6, Math.min(1.15, s));
+		canvas.style.width = Math.round(360 * s) + "px";
+		canvas.style.height = Math.round(640 * s) + "px";
+	}
+	fit();
+	window.addEventListener("resize", fit);
+})();
+</script>
+</body>
+</html>

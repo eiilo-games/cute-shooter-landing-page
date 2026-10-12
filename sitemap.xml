@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+	<url>
+		<loc>https://cute-shooter.com/</loc>
+		<lastmod>2026-10-17</lastmod>
+		<image:image><image:loc>https://cute-shooter.com/img/og.png</image:loc></image:image>
+		<image:image><image:loc>https://cute-shooter.com/img/shots/menu.webp</image:loc></image:image>
+		<image:image><image:loc>https://cute-shooter.com/img/shots/run_20.webp</image:loc></image:image>
+		<image:image><image:loc>https://cute-shooter.com/img/shots/run_90.webp</image:loc></image:image>
+		<image:image><image:loc>https://cute-shooter.com/img/icon-256.png</image:loc></image:image>
+	</url>
+	<url>
+		<loc>https://cute-shooter.com/privacy/</loc>
+		<lastmod>2026-10-11</lastmod>
+	</url>
+</urlset>
