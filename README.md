@@ -3,7 +3,7 @@
 The landing page for the Android game in `../cute-shooter`: the game itself,
 playable in the browser, plus a short how-it-plays, the cast of enemies, the
 two abilities, screenshots, an about section, the privacy policy Google Play
-requires, and a download call to action.
+requires, the terms and conditions, and a download call to action.
 
 Plain static files, no build step, no third-party requests (fonts are
 self-hosted).
@@ -11,12 +11,15 @@ self-hosted).
 ```
 index.html            landing page: hero with the live game, how it plays, cuties, abilities, shots, about, CTA
 privacy/index.html    privacy policy, served at /privacy (link this URL in Play Console)
+terms/index.html      terms and conditions, served at /terms (see "Terms and conditions")
+terms/YYYY-MM-DD.html past versions of the terms, named by the date they took effect (none yet)
 404.html              not-found page
 style.css             one stylesheet for every page
 game.js               the game, a port of the Godot scenes to canvas
 audio.js              Web Audio layer: sound effects and the two music loops
 test/soak.js          headless soak test of game.js (see below)
 tools/og-card.html    source of img/og.png (see SEO)
+tools/terms.mjs       keeps the terms versions consistent (see "Terms and conditions")
 img/                  sprites from the game, the app icon, screenshots, og.png (1200x630 share card)
 sfx/, music/          the game's audio, .ogg plus an .m4a copy for Safari
 fonts/                Kenney Bold / Mini Square / Future (CC0), Atkinson Hyperlegible (OFL)
@@ -62,7 +65,7 @@ Every indexable page has a title, description, canonical URL, Open Graph
 and Twitter card tags. The home page also has JSON-LD (`WebSite`,
 `Organization`, and a `VideoGame` + `MobileApplication` for the game); keep
 its description and screenshots in step with the page. `sitemap.xml` lists
-both pages, with the share card, screenshots and icon as image entries on
+the home page, the privacy policy and the current terms, with the share card, screenshots and icon as image entries on
 the home page; bump a page's `lastmod` when you change it. `404.html` is
 `noindex`.
 
@@ -78,6 +81,43 @@ magick /tmp/og.png -strip -define png:compression-level=9 img/og.png
 
 Look at the result before committing; social sites cache the old card, so
 re-scrape it with Facebook's Sharing Debugger after deploy.
+
+## Terms and conditions
+
+`terms/index.html` is the version of the terms in effect, at
+`https://cute-shooter.com/terms/`. Every earlier version stays online as
+`terms/<YYYY-MM-DD>.html`, named by the date it took effect, `noindex`, with
+no canonical or `og:url` and an "old version" note at the top, and the
+"Changes and past versions" table at the bottom of the current page links
+each one. Old versions are never deleted or edited.
+
+```sh
+node tools/terms.mjs list                                     # effective date and versions
+node tools/terms.mjs new cute-shooter 2027-03-01 "What changed"
+node tools/terms.mjs check                                    # run before every deploy
+```
+
+Never edit a live version in place. To change the terms, run `new` with the
+date the new wording takes effect: it archives the current page as
+`terms/<old date>.html`, moves `index.html` to the new date, adds a row on
+top of its versions table and bumps the `lastmod` in `sitemap.xml`. Then
+edit `terms/index.html` with the new wording and run `check`, which fails on
+any inconsistency (dates, table, archives, noindex, sitemap). Keep the
+markers the tool relies on: `<time class="effective">`, the
+`<!-- archived-notice -->` comment and `<tbody data-versions>` with one
+`<tr data-current>` row.
+
+Give `https://cute-shooter.com/terms/` to the stores: Play Console (store
+listing, and the trader declaration under the EU Digital Services Act) and,
+if the game ever comes to iPhone, App Store Connect.
+
+Before going live: fill in the four placeholders in `terms/index.html`,
+`[[TRADER_NAME]]`, `[[TRADER_ADDRESS]]`, `[[TRADER_REGISTRATION]]` and
+`[[CONSUMER_MEDIATOR]]`, with the details declared to Google Play; `check`
+fails until they are gone. As long as no archived version exists, the
+effective date (14 November 2026, in the `<time class="effective">` and in
+the versions table row) may be moved by hand to the real date of first
+publication, together with the terms' `lastmod` in `sitemap.xml`.
 
 ## Deploy
 
@@ -117,6 +157,8 @@ After it is live:
   only checks `https://cute-shooter.com/app-ads.txt`, at the root) and the privacy
   policy to `https://cute-shooter.com/privacy/`; use the same URL in AdMob and keep the Data
   safety form in line with the policy.
+- Give `https://cute-shooter.com/terms/` as the terms and conditions URL (see
+  "Terms and conditions"), once its placeholders are filled in.
 - The Google Play buttons point at
   `https://play.google.com/store/apps/details?id=com.eiilo.games.cuteshooter`, which 404s until
   the app is published.

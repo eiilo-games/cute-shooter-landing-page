@@ -296,7 +296,7 @@ footer a { text-decoration-thickness: 2px; text-underline-offset: 3px; text-deco
 footer a:focus-visible { outline-color: var(--gold); }
 footer .credit { margin-left: auto; color: #c7d3ee; }
 
-/* ---- long-form pages (privacy, 404) ---- */
+/* ---- long-form pages (privacy, terms, 404) ---- */
 .doc-hero {
 	position: relative; overflow: hidden;
 	padding: clamp(2rem, 5vw, 3.25rem) var(--gutter) clamp(3.25rem, 7vw, 5rem);
@@ -338,6 +338,14 @@ footer .credit { margin-left: auto; color: #c7d3ee; }
 .policy .never li { padding-left: 1.7rem; position: relative; }
 .policy .never li::before { content: "\00d7"; position: absolute; left: 0; top: -0.1em; font-family: var(--display); font-size: 1.3rem; color: #c8243d; }
 .policy .top-link { margin-top: 3rem; font-weight: 700; }
+/* the "Changes and past versions" table, and the note an archived version carries (tools/terms.mjs) */
+.policy .versions { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0.5rem 0 1em; background: var(--panel); border: 2px solid var(--navy); border-radius: 16px; overflow: hidden; font-size: 0.98rem; }
+.policy .versions th, .policy .versions td { text-align: left; vertical-align: top; padding: 0.55rem 0.9rem; }
+.policy .versions th { font-family: var(--future); font-size: 0.75rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 2px solid var(--line); }
+.policy .versions tbody tr + tr td { border-top: 2px solid var(--line); }
+.policy .versions td:first-child { width: 40%; font-weight: 700; }
+.archived { max-width: 62ch; margin: 1rem 0 0; padding: 0.75rem 1rem; background: var(--gold); color: var(--navy); border: 2px solid var(--navy); border-radius: 16px; box-shadow: 0 4px 0 rgba(41, 51, 79, 0.18); }
+.archived a { font-weight: 700; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 
 @media (min-width: 900px) {
 	.doc-body { grid-template-columns: 13rem minmax(0, var(--measure)); grid-template-areas: "summary summary" "toc policy"; justify-content: center; }
@@ -354,6 +362,7 @@ footer .credit { margin-left: auto; color: #c7d3ee; }
 	.doc-hero h1, .policy h2 { color: #000; text-shadow: none; }
 	.doc-body { display: block; padding: 0; }
 	.summary { margin: 1rem 0 1.5rem; box-shadow: none; border: 1px solid #999; }
+	.archived { background: none; box-shadow: none; border: 1px solid #000; }
 	.policy a::after { content: " (" attr(href) ")"; font-size: 0.85em; }
 	.policy a[href^="#"]::after, .policy a[href^="mailto"]::after { content: ""; }
 }
